@@ -6,6 +6,6 @@ app_name = "suitupapp"
 
 urlpatterns = [
     path('', purchased_item_list, stores_list, name='home'),
-    path('purchaseditems', purchased_item_list, name='purchaseditems'),
-    path('stores', stores_list, name='stores'),
+    path('purchaseditems/', purchased_item_list, name='purchaseditems'),
+    path('stores/', stores_list, name='stores'),
 ]
