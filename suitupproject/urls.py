@@ -19,5 +19,7 @@ from suitupapp.models import *
 
 app_name = 'suitupapp'
 urlpatterns = [
-    path('admin/', admin.site.urls)]
+    path('admin/', admin.site.urls),
+    path('', include('suitupapp.urls'))
+    ]
     # path('accounts/', include('django.contrib.auth.urls')),]
