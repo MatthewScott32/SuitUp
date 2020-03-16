@@ -1,1 +1,1 @@
-from .purchased_items.list import purchasedItemList
+from .purchased_items.list import purchased_item_list
