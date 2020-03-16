@@ -1,7 +1,31 @@
-{% for store in all_stores %}
+{% comment %} {% for store in all_stores %}
     <p>{{store.name}}</p>
     <p>{{store.location}}</p>
     <p>{{store.brands_available}}</p>
     <p>{{store.notes}}</p>
     <p>{{store.user_id}}</p>
-{% endfor %}
+{% endfor %} {% endcomment %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stores</title>
+  </head>
+  <body>
+    <h1>Stores</h1>
+
+    <ol>
+    {% for store in all_stores %}
+        <li>
+            <p>{{store.name}}</p>
+            <p>{{store.location}}</p>
+            <p>{{store.brands_available}}</p>
+            <p>{{store.notes}}</p>
+            <p>{{store.user_id}}</p>
+        </li>
+    {% endfor %}
+    </ol>
+  </body>
+</html>
