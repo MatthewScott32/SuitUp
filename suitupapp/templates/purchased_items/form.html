@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SuitUp</title>
+  </head>
+  <body>
+    <h1>New Item Form</h1>
+
+
+    <form action="{% url 'suitupapp:purchaseditems' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="item_bought">Item Bought: </label>
+          <input id="item_bought" type="text" name="item_bought">
+      </fieldset>
+      <fieldset>
+          <label for="brand">Brand: </label>
+          <input id="brand" type="text" name="brand">
+      </fieldset>
+      <fieldset>
+          <label for="size">Size: </label>
+          <input id="size" type="text" name="size">
+      </fieldset>
+      <fieldset>
+          <label for="price">Price: </label>
+          <input id="price" type="text" name="price">
+      </fieldset>
+      <fieldset>
+          <label for="cleaning_methods">Cleaning Methods: </label>
+          <input id="cleaning_methods" type="text" name="cleaning_methods">
+      </fieldset>
+      <fieldset>
+          <label for="notes">Notes: </label>
+          <input id="notes" type="text" name="notes">
+      </fieldset>
+      <fieldset>
+          <label for="store">Store: </label>
+          <select id="store" type="text" name="store">
+                {% for store in all_stores %}
+                    <option value="{{ store.id }}">{{ store.name }}</option>
+                {% endfor %}
+          </select>
+      </fieldset>
+
+      <input type="submit" value="Add It" />
+    </form>
+  </body>
+</html>

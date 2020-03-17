@@ -42,7 +42,8 @@ def purchased_item_list(request):
             #     purchased_item.user_id = row['user_id']
 
                 # all_purchased_items.append(purchased_item)
-                all_items = PurchasedItem.objects.all()
+                all_items = PurchasedItem.objects.values("item_bought", "brand", "size", "price", "cleaning_methods", 
+                "notes", "store__name")
 
                 # purchased_item = request.GET.get('purchased_item', None)
                 # for item in all_items:
@@ -60,16 +61,16 @@ def purchased_item_list(request):
             
     elif request.method == 'POST':
         form_data = request.POST
-
+        print("this is the item I bought", form_data["item_bought"])
         new_item = PurchasedItem(
             item_bought = form_data['item_bought'],
             brand = form_data['brand'],
             size = form_data['size'],
             price = form_data['price'],
-            store_id = form_data['store_id'],
-            cleaning_methods = form_data['cleaning_method'],
+            store_id = int(form_data['store']),
+            cleaning_methods = form_data['cleaning_methods'],
             notes = form_data['notes'],
             user_id = request.user.id,
         ) 
-
-        return redirect(reverse('suitupapp:purchased_items'))
+        new_item.save()
+        return redirect(reverse('suitupapp:purchaseditems'))
