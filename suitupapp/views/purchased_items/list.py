@@ -42,7 +42,7 @@ def purchased_item_list(request):
             #     purchased_item.user_id = row['user_id']
 
                 # all_purchased_items.append(purchased_item)
-                all_items = PurchasedItem.objects.values("item_bought", "brand", "size", "price", "cleaning_methods", 
+                all_items = PurchasedItem.objects.values("id", "item_bought", "brand", "size", "price", "cleaning_methods", 
                 "notes", "store__name")
 
                 # purchased_item = request.GET.get('purchased_item', None)
@@ -61,7 +61,6 @@ def purchased_item_list(request):
             
     elif request.method == 'POST':
         form_data = request.POST
-        print("this is the item I bought", form_data["item_bought"])
         new_item = PurchasedItem(
             item_bought = form_data['item_bought'],
             brand = form_data['brand'],
