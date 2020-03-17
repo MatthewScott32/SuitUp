@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SuitUp</title>
+  </head>
+  <body>
+    <h1>New Store Form</h1>
+
+
+    <form action="{% url 'suitupapp:stores' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="name">Name: </label>
+          <input id="name" type="text" name="name">
+      </fieldset>
+      <fieldset>
+          <label for="location">Location: </label>
+          <input id="location" type="text" name="location">
+      </fieldset>
+      <fieldset>
+          <label for="brands_available">Brands Available: </label>
+          <input id="brands_available" type="text" name="brands_available">
+      </fieldset>
+      <fieldset>
+          <label for="notes">Notes: </label>
+          <input id="notes" type="text" name="notes">
+      </fieldset>
+
+      <input type="submit" value="Add It" />
+    </form>
+  </body>
+</html>

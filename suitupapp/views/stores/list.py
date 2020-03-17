@@ -41,7 +41,7 @@ def stores_list(request):
             #     purchased_item.user_id = row['user_id']
 
                 # all_purchased_items.append(purchased_item)
-                all_stores = Store.objects.all()
+                all_stores = Store.objects.values("name", "location", "brands_available", "notes")
 
                 # purchased_item = request.GET.get('purchased_item', None)
                 # for item in all_items:
@@ -67,5 +67,5 @@ def stores_list(request):
             notes = form_data['notes'],
             user_id = request.user.id,
         ) 
-
+        new_item.save()
         return redirect(reverse('suitupapp:stores'))
