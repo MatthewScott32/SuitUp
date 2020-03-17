@@ -1,5 +1,6 @@
 from django.urls import path, include
 from .views import purchased_item_list
+from .views import purchased_item_details
 from .views import stores_list
 from .views.home.home import home
 from .views.auth.logout import logout
@@ -14,6 +15,7 @@ urlpatterns = [
     path('logout/', logout, name='logout'),
     path('purchaseditems/', purchased_item_list, name='purchaseditems'),
     path('purchaseditems/form', new_item_form, name='purchaseditemform'),
+    path('purchaseditems/<int:purchaseditem_id>/', purchased_item_details, name='purchaseditem'),
     path('stores/', stores_list, name='stores'),
     path('stores/form', store_form, name='store_form'),
 ]
