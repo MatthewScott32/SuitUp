@@ -25,5 +25,5 @@ def stores_list(request):
             notes = form_data['notes'],
             user_id = request.user.id,
         ) 
-        new_item.save()
+        new_store.save()
         return redirect(reverse('suitupapp:stores'))
