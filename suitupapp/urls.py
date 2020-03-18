@@ -6,6 +6,7 @@ from .views.home.home import home
 from .views.auth.logout import logout
 from .views import new_item_form
 from .views import store_form
+from .views import store_details
 
 app_name = "suitupapp"
 
@@ -18,4 +19,5 @@ urlpatterns = [
     path('purchaseditems/<int:purchaseditem_id>/', purchased_item_details, name='purchaseditem'),
     path('stores/', stores_list, name='stores'),
     path('stores/form', store_form, name='store_form'),
+    path('stores/<int:store_id>/', store_details, name='store'),
 ]

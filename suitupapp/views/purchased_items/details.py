@@ -34,7 +34,7 @@ def purchased_item_details(request, purchaseditem_id):
             purchased_item_to_update.price = form_data['price']
             purchased_item_to_update.cleaning_methods = form_data['cleaning_methods']
             purchased_item_to_update.notes = form_data['notes']
-            purchased_item_to_update.store_id = form_data['store_id']
+            purchased_item_to_update.store_id = form_data['store__name']
 
             purchased_item_to_update.save()
 
