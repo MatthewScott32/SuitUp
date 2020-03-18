@@ -19,5 +19,12 @@
             <p>{{purchaseditem.store.name}}</p>
         </li>
     </ol>
+
+    <form action="{% url 'suitupapp:purchaseditem' purchaseditem.id %}" method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="actual_method" value="DELETE">
+      <button>Delete</button>
+    </form>
+
   </body>
 </html>

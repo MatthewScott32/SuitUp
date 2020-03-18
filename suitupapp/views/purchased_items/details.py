@@ -27,7 +27,6 @@ def purchased_item_details(request, purchaseditem_id):
         ):
           
             purchased_item_to_update = PurchasedItem.objects.get(pk=purchaseditem_id)
-
             purchased_item_to_update.item_bought = form_data['item_bought']
             purchased_item_to_update.brand = form_data['brand']
             purchased_item_to_update.size = form_data['size']
