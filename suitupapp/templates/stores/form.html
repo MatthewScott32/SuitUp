@@ -7,27 +7,35 @@
   <body>
     <h1>New Store Form</h1>
 
-
+    {% if store.id is not None %}
     <form action="{% url 'suitupapp:stores' %}" method="post">
+    {% else %}
+    <form action="{% url 'suitupapp:stores' %}" method="post">
+    {% endif %}
       {% csrf_token %}
       <fieldset>
           <label for="name">Name: </label>
-          <input id="name" type="text" name="name">
+          <input id="name" type="text" name="name" value="{{store.name}}">
       </fieldset>
       <fieldset>
           <label for="location">Location: </label>
-          <input id="location" type="text" name="location">
+          <input id="location" type="text" name="location" value="{{store.location}}">
       </fieldset>
       <fieldset>
           <label for="brands_available">Brands Available: </label>
-          <input id="brands_available" type="text" name="brands_available">
+          <input id="brands_available" type="text" name="brands_available" value="{{store.brands_available}}">
       </fieldset>
       <fieldset>
           <label for="notes">Notes: </label>
-          <input id="notes" type="text" name="notes">
+          <input id="notes" type="text" name="notes" value="{{store.notes}}">
       </fieldset>
 
-      <input type="submit" value="Add It" />
+       {% if store.id is not None %}
+            <input type="hidden" name="actual_method" value="PUT">
+            <input type="submit" value="Update" />
+        {% else %}
+           <input type="submit" value="Add It" />
+        {% endif %}
     </form>
   </body>
 </html>

@@ -7,3 +7,4 @@ from .stores.form import store_form
 from .purchased_items.details import purchased_item_details
 from .stores.details import store_details
 from .purchased_items.form import purchased_item_edit_form
+from .stores.form import store_edit_form
