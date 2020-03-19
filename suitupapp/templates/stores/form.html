@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>SuitUp</title>
-  </head>
-  <body>
+{% extends 'shared/base.html' %}
+
+{% block content %}
     <h1>New Store Form</h1>
 
     {% if store.id is not None %}
-    <form action="{% url 'suitupapp:stores' %}" method="post">
+    <form action="{% url 'suitupapp:store' store.id %}" method="post">
     {% else %}
     <form action="{% url 'suitupapp:stores' %}" method="post">
     {% endif %}
@@ -30,12 +26,11 @@
           <input id="notes" type="text" name="notes" value="{{store.notes}}">
       </fieldset>
 
-       {% if store.id is not None %}
+        {% if store.id is not None %}
             <input type="hidden" name="actual_method" value="PUT">
             <input type="submit" value="Update" />
         {% else %}
-           <input type="submit" value="Add It" />
+            <input type="submit" value="Create" />
         {% endif %}
     </form>
-  </body>
-</html>
+{% endblock %}

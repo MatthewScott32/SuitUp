@@ -1,11 +1,12 @@
+{% extends 'shared/base.html' %}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Purchased Items</title>
-  </head>
-  <body>
+   {% block title %}
+            Purchased Items
+   {% endblock %}
+    
+
+{% block content %}
+
     <h1>Items</h1>
 
     <ol>
@@ -16,5 +17,4 @@
         </li>
     {% endfor %}
     </ol>
-  </body>
-</html>
+{% endblock %}
