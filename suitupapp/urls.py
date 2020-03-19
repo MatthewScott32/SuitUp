@@ -8,6 +8,7 @@ from .views import new_item_form
 from .views import purchased_item_edit_form
 from .views import store_form
 from .views import store_details
+from .views import store_edit_form
 
 app_name = "suitupapp"
 
@@ -22,4 +23,5 @@ urlpatterns = [
     path('stores/', stores_list, name='stores'),
     path('stores/form', store_form, name='store_form'),
     path('stores/<int:store_id>/', store_details, name='store'),
+    path('stores/<int:store_id>/form/', store_edit_form, name='store_edit_form'),
 ]

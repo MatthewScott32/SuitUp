@@ -16,11 +16,17 @@
         </li>
     </ol>
 
+    <section>
     <form action="{% url 'suitupapp:store' store.id %}" method="POST">
       {% csrf_token %}
       <input type="hidden" name="actual_method" value="DELETE">
       <button>Delete</button>
     </form>
+
+    <form action="{% url 'suitupapp:store_edit_form' store.id %}" method="GET">
+              {% csrf_token %}
+              <button>Edit</button>
+    </section>
 
   </body>
 </html>
