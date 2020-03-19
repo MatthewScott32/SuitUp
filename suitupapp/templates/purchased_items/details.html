@@ -1,11 +1,12 @@
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Purchased Items</title>
-  </head>
-  <body>
+{% extends 'shared/base.html' %}
+
+   {% block title %}
+            Purchased Items
+   {% endblock %}
+    
+
+{% block content %}
     <h1>Item</h1>
 
     <ol>
@@ -31,5 +32,4 @@
               <button>Edit</button>
       </form>
     </section>
-  </body>
-</html>
+{% endblock %}
