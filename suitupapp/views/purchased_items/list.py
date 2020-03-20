@@ -8,14 +8,14 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def purchased_item_list(request):
     if request.method == 'GET':
-                current_user = request.user
-                user_items = PurchasedItem.objects.filter(user=current_user)
-                all_items = PurchasedItem.objects.values("id", "item_bought", "brand", "size", "price", "cleaning_methods", 
+                current_user = request.user.id
+                # user_items = PurchasedItem.objects.filter(user_id=current_user)
+                all_items = PurchasedItem.objects.filter(user_id=current_user).values("id", "item_bought", "brand", "size", "price", "cleaning_methods", 
                 "notes", "store__name")
                 template = 'purchased_items/list.html'
                 context = {
                     'all_items': all_items,
-                    'user_items': user_items
+                    # 'user_items': user_items
                 }
 
                 return render(request, template, context)
