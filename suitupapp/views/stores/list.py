@@ -7,7 +7,8 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def stores_list(request):
     if request.method == 'GET':
-                all_stores = Store.objects.values("id", "name", "location", "brands_available", 
+                current_user = request.user.id
+                all_stores = Store.objects.filter(user_id=current_user).values("id", "name", "location", "brands_available", 
                 "notes")
                 template = 'stores/list.html'
                 context = {
