@@ -7,6 +7,7 @@
 
 {% block content %}
     <h1>Stores</h1>
+    <a href="{% url 'suitupapp:store_form' %}">Add Store</a>
 
     <ol>
     {% for store in all_stores %}
