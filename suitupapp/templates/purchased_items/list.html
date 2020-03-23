@@ -8,6 +8,7 @@
 {% block content %}
 
     <h1>Items</h1>
+    <a href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>
 
     <ol>
     {% for item in all_items %}

@@ -4,20 +4,22 @@ from .views import purchased_item_details
 from .views import stores_list
 from .views.home.home import home
 from .views import register_user
-from .views.auth.logout import logout
+from .views.auth.logout import logout_user
 from .views import new_item_form
 from .views import purchased_item_edit_form
 from .views import store_form
 from .views import store_details
 from .views import store_edit_form
+from .views import guide
 
 app_name = "suitupapp"
 
 urlpatterns = [
     path('home/', home, name='home'),
+    path('guide/', guide, name='guide'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', register_user, name="register"),
-    path('logout/', logout, name='logout'),
+    path('logout/', logout_user, name='logout'),
     path('purchaseditems/', purchased_item_list, name='purchaseditems'),
     path('purchaseditems/form', new_item_form, name='purchaseditemform'),
     path('purchaseditems/<int:purchaseditem_id>/', purchased_item_details, name='purchaseditem'),

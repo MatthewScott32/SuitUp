@@ -14,16 +14,16 @@
 </head>
 
 <body>
-    <Nav>  <nav id="site-nav">
+    <nav id="site-nav">
         <ol class="navList">
             <li class="navList__route"><a href="{% url 'suitupapp:home' %}">Home</a></li>
             <li class="navList__route"><a href="{% url 'suitupapp:purchaseditems' %}">Purchased Items</a></li>
             <li class="navList__route"><a href="{% url 'suitupapp:stores' %}">Stores</a></li>
             <li class="navList__route"><a href="{% url 'suitupapp:login' %}">Login</a></li>
-            {% comment %} <li class="navList__route"><a href="{% url 'suitupapp:logout' %}">Logout</a></li> {% endcomment %}
+            <li class="navList__route"><a href="{% url 'suitupapp:logout' %}">Logout</a></li>
             <li class="navList__route"><a href="{% url 'suitupapp:register' %}">Register</a></li>
         </ol>
-    </nav></Nav>
+    </nav>
    {% block content %}
    {% endblock %}
 
