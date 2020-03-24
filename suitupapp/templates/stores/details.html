@@ -3,14 +3,14 @@
 {% block content %}
     <h1>Store</h1>
 
-    <ol>
+    <ul>
         <li>
-            <p>{{store.name}}</p>
-            <p>{{store.location}}</p>
-            <p>{{store.brands_available}}</p>
-            <p>{{store.notes}}</p>
+            <p><b>Name:</b> {{store.name}}</p>
+            <p><b>Location:</b> {{store.location}}</p>
+            <p><b>Brands Available:</b> {{store.brands_available}}</p>
+            <p><b>Notes:</b> {{store.notes}}</p>
         </li>
-    </ol>
+    </ul>
 
     <section>
     <form action="{% url 'suitupapp:store' store.id %}" method="POST">

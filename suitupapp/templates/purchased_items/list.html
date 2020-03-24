@@ -13,8 +13,8 @@
     <ol>
     {% for item in all_items %}
         <li>
-            <a href="{% url 'suitupapp:purchaseditem' item.id %}">{{item.item_bought}}</a>
-            <p>{{item.brand}}</p>
+            <p><b>Item:</b> <a href="{% url 'suitupapp:purchaseditem' item.id %}">{{item.item_bought}}</a></p>
+            <p><b>Brand:</b> {{item.brand}}</p>
         </li>
     {% endfor %}
     </ol>

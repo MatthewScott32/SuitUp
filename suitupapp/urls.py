@@ -2,7 +2,7 @@ from django.urls import path, include
 from .views import purchased_item_list
 from .views import purchased_item_details
 from .views import stores_list
-from .views.home.home import home
+from .views import home
 from .views import register_user
 from .views.auth.logout import logout_user
 from .views import new_item_form
@@ -15,7 +15,7 @@ from .views import guide
 app_name = "suitupapp"
 
 urlpatterns = [
-    path('home/', home, name='home'),
+    path('', home, name='home'),
     path('guide/', guide, name='guide'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', register_user, name="register"),
