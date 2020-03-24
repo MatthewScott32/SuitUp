@@ -9,17 +9,17 @@
 {% block content %}
     <h1>Item</h1>
 
-    <ol>
+    <ul>
         <li>
-            <p>{{purchaseditem.item_bought}}</p>
-            <p>{{purchaseditem.brand}}</p>
-            <p>{{purchaseditem.size}}</p>
-            <p>{{purchaseditem.price}}</p>
-            <p>{{purchaseditem.cleaning_methods}}</p>
-            <p>{{purchaseditem.notes}}</p>
-            <p>{{purchaseditem.store.name}}</p>
+            <p><b>Item:</b> {{purchaseditem.item_bought}}</p>
+            <p><b>Brand:</b> {{purchaseditem.brand}}</p>
+            <p><b>Size:</b> {{purchaseditem.size}}</p>
+            <p><b>Price:</b> {{purchaseditem.price}}</p>
+            <p><b>Cleaning:</b> {{purchaseditem.cleaning_methods}}</p>
+            <p><b>Notes:</b> {{purchaseditem.notes}}</p>
+            <p><b>Store:</b> {{purchaseditem.store.name}}</p>
         </li>
-    </ol>
+    </ul>
     <section>
       <form action="{% url 'suitupapp:purchaseditem' purchaseditem.id %}" method="POST">
         {% csrf_token %}

@@ -12,8 +12,8 @@
     <ol>
     {% for store in all_stores %}
         <li>
-            <a href="{% url 'suitupapp:store' store.id %}">{{store.name}}</a>
-            <p>{{store.location}}</p>
+            <p><b>Name:</b> <a href="{% url 'suitupapp:store' store.id %}">{{store.name}}</a></p>
+            <p><b>Location:</b> {{store.location}}</p>
         </li>
     {% endfor %}
     </ol>
