@@ -1,17 +1,21 @@
-{% extends 'shared/base.html' %}
+{% comment %} {% extends 'shared/base.html' %} {% endcomment %}
+{% load static %}
 
-   {% block title %}
+   {% comment %} {% block title %}
             Purchased Items
-   {% endblock %}
+   {% endblock %} {% endcomment %}
     
 
 {% block content %}
 
     <h1>Items</h1>
-    <a href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>
+    <a href="{% url 'suitupapp:upload_item' %}">Add Item</a>
 
     <ol>
     {% for item in all_items %}
+        <div class="img-container">
+            <img src="{{MEDIA_URL}}{{item.image}}" alt="image" class="purchased-item-img" height="70" width="70">
+        </div>
         <li>
             <p><b>Item:</b> <a href="{% url 'suitupapp:purchaseditem' item.id %}">{{item.item_bought}}</a></p>
             <p><b>Brand:</b> {{item.brand}}</p>

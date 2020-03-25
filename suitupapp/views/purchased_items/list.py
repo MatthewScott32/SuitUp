@@ -11,7 +11,9 @@ def purchased_item_list(request):
                 current_user = request.user.id
                 # user_items = PurchasedItem.objects.filter(user_id=current_user)
                 all_items = PurchasedItem.objects.filter(user_id=current_user).values("id", "item_bought", "brand", "size", "price", "cleaning_methods", 
-                "notes", "store__name")
+                "notes", "image", "store__name")
+                image = request.GET.get('image')
+                print(image)
                 template = 'purchased_items/list.html'
                 context = {
                     'all_items': all_items,

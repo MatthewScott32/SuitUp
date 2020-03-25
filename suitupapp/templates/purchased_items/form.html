@@ -5,12 +5,13 @@
     {% if purchaseditem.id is not None %}
     <h1>Edit Item</h1>
       <form action="{% url 'suitupapp:purchaseditem' purchaseditem.id %}" method="post">
-       {% else %}
-       <h1>New Item</h1>
-        <form action="{% url 'suitupapp:purchaseditems' %}" method="post">
-       {% endif %}
-        {% csrf_token %}
-        <fieldset>
+    {% else %}
+    <h1>New Store</h1>
+    <form action="{% url 'suitupapp:purchaseditems' %}" method="post">
+    {% endif %}
+    {% csrf_token %}
+    {{ form.as_p}}  
+      {% comment %} <fieldset>
             <label for="item_bought">Item Bought: </label>
             <input id="item_bought" type="text" name="item_bought" value="{{purchaseditem.item_bought}}">
         </fieldset>
@@ -41,13 +42,26 @@
                       <option {% if store.id == purchaseditem.location_id %}selected{% endif %} value="{{ store.id }}">{{ store.name }}</option>
                   {% endfor %}
             </select>
-        </fieldset>
+        </fieldset> {% endcomment %}
+            {% comment %} <input type="hidden" name="actual_method" value="PUT">
+            <input type="submit" value="Update1" /> {% endcomment %}
+        {% comment %} {% endif %} {% endcomment %}
+        {% comment %} {% if purchaseditem.id is not None %}
+        {% else %}
+            <input type="submit" value="Create" />
+      {% endif %} {% endcomment %}
+      {% comment %} </form> {% endcomment %}
 
         {% if purchaseditem.id is not None %}
             <input type="hidden" name="actual_method" value="PUT">
-            <input type="submit" value="Update" />
+            <input type="submit" value="Update2" />
         {% else %}
             <input type="submit" value="Create" />
         {% endif %}
       </form>
- {% endblock %}
+    {% comment %} <form method = "post" enctype="multipart/form-data"> 
+        {% csrf_token %} 
+        {{ form.as_p}} 
+        <button type="submit" value="Update">Update Real</button> 
+    </form> {% endcomment %}
+    {%endblock%}
