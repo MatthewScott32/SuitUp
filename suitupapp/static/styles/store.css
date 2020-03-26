@@ -20,3 +20,7 @@
 .store__description {
     font-size: 0.75em;
 }
+
+.store__buttons {
+    margin-left: 400px;
+}

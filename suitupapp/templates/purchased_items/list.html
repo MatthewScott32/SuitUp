@@ -13,8 +13,8 @@
 {% block content %}
 
     <fieldset>
-        <label for="store">Sort by store</label>
-        <select id="store" type="text" name="store">
+        <label class="items" for="store">Sort by store</label>
+        <div><select id="store" type="text" name="store"></div>
         <option value="" selected="selected">Select Store</option>
             {% for store in all_stores %}
                 <option {% if store.id == location_id %}selected{% endif %} value="{{store.id}}">{{ store.name }}</option>

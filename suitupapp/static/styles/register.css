@@ -1,0 +1,42 @@
+.registers {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.register {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    border: 1px solid gray;
+    margin: 1em;
+    padding: 1.5em;
+}
+
+.register__name {
+    font-size: 1.1em;
+}
+
+.register__description {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 400px;
+}
+
+.register__button {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 495px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 20px;
+}

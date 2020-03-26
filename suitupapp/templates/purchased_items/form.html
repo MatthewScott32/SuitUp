@@ -37,12 +37,13 @@
         </fieldset>
         <fieldset>
             <label for="store">Store: </label>
-            <select id="store" type="text" name="store" value="{{purchaseditem.store.name}}">
-                  {% for store in all_stores %}
-                      <option {% if store.id == purchaseditem.store_id %}selected{% endif %} value="{{ store.id }}">{{ store.name }}</option>
-                  {% endfor %}
-            </select>
-        </fieldset>
+            <select id="store" type="text" name="store">
+        <option value="" selected="selected">Select Store</option>
+            {% for store in all_stores %}
+                <option {% if store.id == location_id %}selected{% endif %} value="{{store.id}}">{{ store.name }}</option>
+            {% endfor %}
+        </select>
+    </fieldset>
 
         {% if purchaseditem.id is not None %}
             <input type="hidden" name="actual_method" value="PUT">
