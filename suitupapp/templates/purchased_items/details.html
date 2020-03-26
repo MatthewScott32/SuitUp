@@ -13,13 +13,13 @@
 {% block content %}
     <h1 class="items">Item</h1>
      <section>
-      <form action="{% url 'suitupapp:purchaseditem' purchaseditem.id %}" method="POST">
+      <form style="text-align: center;" action="{% url 'suitupapp:purchaseditem' purchaseditem.id %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="actual_method" value="DELETE">
         <button>Delete</button>
       </form>
 
-      <form action="{% url 'suitupapp:purchaseditem_edit_form' purchaseditem.id %}" method="GET">
+      <form style="text-align: center;" action="{% url 'suitupapp:purchaseditem_edit_form' purchaseditem.id %}" method="GET">
               {% csrf_token %}
               <button>Edit</button>
       </form>

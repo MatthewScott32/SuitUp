@@ -1,16 +1,23 @@
 {% extends 'shared/base.html' %}
+{% load static%}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/register.css' %}" />
+{% endblock %}
 
 {% block content %}
 
-<h2>Register</h2>
-<form method="post">
+<h2 class="registers">Register</h2>
+<form class="register" method="post">
     {% csrf_token %}
-    <input type="text" placeholder="username" name="username">
-    <input type="text" placeholder="password" name="password">
-    <input type="email" placeholder="email" name="email">
-    <input type="text" placeholder="first name" name="first_name">
-    <input type="text" placeholder="last name" name="last_name">
-  
-    <button type="submit">Login</button>
+    <ul style=list-style-type: none;>
+        <li><input style="text-align: center;" class="register__description" type="text" placeholder="username" name="username"></li>
+        <li><input style="text-align: center;" class="register__description" type="text" placeholder="password" name="password"></li>
+        <li><input style="text-align: center;" class="register__description" type="email" placeholder="email" name="email"></li>
+        <li><input style="text-align: center;" class="register__description" type="text" placeholder="first name" name="first_name"></li>
+        <li><input style="text-align: center;" class="register__description" type="text" placeholder="last name" name="last_name"></li>
+    </ul>
+    <button class="register__button" type="submit">Login</button>
 </form>
 {% endblock %}

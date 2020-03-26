@@ -1,10 +1,16 @@
 {% extends 'shared/base.html' %}
+{% load static%}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}" />
+{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+<h2 class="logins">Login</h2>
+<form class="login" method="post">
+   <div>{% csrf_token %}
+    {{ form.as_p }}</div>
     <button type="submit">Login</button>
 </form>
 {% endblock %}
