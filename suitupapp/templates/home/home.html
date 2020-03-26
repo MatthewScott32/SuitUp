@@ -1,10 +1,16 @@
 {% extends 'shared/base.html' %}
+{% load static%}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/purchased_item.css' %}" />
+{% endblock %}
 
 {% block content %}
 
-    <h1>Welcome to SuitUp</h1>
-    <h2>Start Suiting Up</h2>
-    <a href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>
-    <a href="{% url 'suitupapp:store_form' %}">Add Store</a>
+    <h1 class="items">Welcome to SuitUp</h1>
+    <h2 class="items">Start Suiting Up</h2>
+    <a class="items" href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>
+    <a class="items" href="{% url 'suitupapp:store_form' %}">Add Store</a>
 
 {% endblock %}

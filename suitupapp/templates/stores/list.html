@@ -11,8 +11,8 @@
     
 
 {% block content %}
-    <h1>Stores</h1>
-    <a href="{% url 'suitupapp:store_form' %}">Add Store</a>
+    <h1 class="stores">Stores</h1>
+    <a class="stores" href="{% url 'suitupapp:store_form' %}">Add Store</a>
 
     <ol class="stores">
     {% for store in all_stores %}

@@ -1,5 +1,9 @@
-
 {% extends 'shared/base.html' %}
+{% load static%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/purchased_item.css' %}" />
+{% endblock %}
 
    {% block title %}
             Purchased Items
@@ -7,20 +11,8 @@
     
 
 {% block content %}
-    <h1>Item</h1>
-
-    <ul>
-        <li>
-            <p><b>Item:</b> {{purchaseditem.item_bought}}</p>
-            <p><b>Brand:</b> {{purchaseditem.brand}}</p>
-            <p><b>Size:</b> {{purchaseditem.size}}</p>
-            <p><b>Price:</b> {{purchaseditem.price}}</p>
-            <p><b>Cleaning:</b> {{purchaseditem.cleaning_methods}}</p>
-            <p><b>Notes:</b> {{purchaseditem.notes}}</p>
-            <p><b>Store:</b> {{purchaseditem.store.name}}</p>
-        </li>
-    </ul>
-    <section>
+    <h1 class="items">Item</h1>
+     <section>
       <form action="{% url 'suitupapp:purchaseditem' purchaseditem.id %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="actual_method" value="DELETE">
@@ -32,4 +24,28 @@
               <button>Edit</button>
       </form>
     </section>
+
+    <ul class="items">
+        <li class="item">
+            <p class="item__name"><b>Item:</b> {{purchaseditem.item_bought}}</p>
+            <p class="item__description"><b>Brand:</b> {{purchaseditem.brand}}</p>
+            <p class="item__description"><b>Size:</b> {{purchaseditem.size}}</p>
+            <p class="item__description"><b>Price:</b> {{purchaseditem.price}}</p>
+            <p class="item__description"><b>Cleaning:</b> {{purchaseditem.cleaning_methods}}</p>
+            <p class="item__description"><b>Notes:</b> {{purchaseditem.notes}}</p>
+            <p class="item__description"><b>Store:</b> {{purchaseditem.store.name}}</p>
+        </li>
+    </ul>
+    {% comment %} <section>
+      <form action="{% url 'suitupapp:purchaseditem' purchaseditem.id %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="actual_method" value="DELETE">
+        <button>Delete</button>
+      </form>
+
+      <form action="{% url 'suitupapp:purchaseditem_edit_form' purchaseditem.id %}" method="GET">
+              {% csrf_token %}
+              <button>Edit</button>
+      </form>
+    </section> {% endcomment %}
 {% endblock %}

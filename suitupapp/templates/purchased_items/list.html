@@ -12,9 +12,9 @@
 
 {% block content %}
 
-    <h1>Items</h1>
+    <h1 class="items">Items</h1>
 
-    <a href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>
+    <a class="items" href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>
 
     <ol class="items">
     {% for item in all_items %}
