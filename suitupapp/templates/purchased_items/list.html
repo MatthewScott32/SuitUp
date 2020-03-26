@@ -1,4 +1,9 @@
 {% extends 'shared/base.html' %}
+{% load static%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/purchased_item.css' %}" />
+{% endblock %}
 
    {% block title %}
             Purchased Items
@@ -7,15 +12,20 @@
 
 {% block content %}
 
-    <h1>Items</h1>
-    <a href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>
+    <h1 class="items">Items</h1>
 
-    <ol>
+    <a class="items" href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>
+
+    <ol class="items">
     {% for item in all_items %}
-        <li>
-            <p><b>Item:</b> <a href="{% url 'suitupapp:purchaseditem' item.id %}">{{item.item_bought}}</a></p>
-            <p><b>Brand:</b> {{item.brand}}</p>
+        <li class="item">
+            <p class="item__name"><b>Item:</b> <a href="{% url 'suitupapp:purchaseditem' item.id %}">{{item.item_bought}}</a></p>
+            <p class="item__description"><b>Brand:</b> {{item.brand}}</p>
         </li>
     {% endfor %}
     </ol>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'scripts/purchased_item.js' %}"></script>
 {% endblock %}

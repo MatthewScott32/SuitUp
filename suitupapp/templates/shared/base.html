@@ -6,11 +6,15 @@
 <head>
     <meta charset="utf-8">
     <title>
-        {% block title %}
+        {% comment %} {% block title %} {% endcomment %}
             SuitUp
-        {% endblock %}
+        {% comment %} {% endblock %} {% endcomment %}
     
     </title>
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
+
+    {% block css %}
+    {% endblock %}
 </head>
 
 <body>
@@ -25,8 +29,13 @@
             <li class="navList__route"><a href="{% url 'suitupapp:register' %}">Register</a></li>
         </ol>
     </nav>
-   {% block content %}
-   {% endblock %}
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% block scripts %}
+    {% endblock scripts %}
 
 </body>
 

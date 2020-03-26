@@ -1,19 +1,24 @@
 {% extends 'shared/base.html' %}
+{% load static%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/store.css' %}" />
+{% endblock %}
 
    {% block title %}
-            Purchased Items
+            Stores
    {% endblock %}
     
 
 {% block content %}
-    <h1>Stores</h1>
-    <a href="{% url 'suitupapp:store_form' %}">Add Store</a>
+    <h1 class="stores">Stores</h1>
+    <a class="stores" href="{% url 'suitupapp:store_form' %}">Add Store</a>
 
-    <ol>
+    <ol class="stores">
     {% for store in all_stores %}
-        <li>
-            <p><b>Name:</b> <a href="{% url 'suitupapp:store' store.id %}">{{store.name}}</a></p>
-            <p><b>Location:</b> {{store.location}}</p>
+        <li class="store">
+            <p class="store__name"><b>Name:</b> <a href="{% url 'suitupapp:store' store.id %}">{{store.name}}</a></p>
+            <p class="store__description"><b>Location:</b> {{store.location}}</p>
         </li>
     {% endfor %}
     </ol>
