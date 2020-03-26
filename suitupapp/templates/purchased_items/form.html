@@ -39,7 +39,7 @@
             <label for="store">Store: </label>
             <select id="store" type="text" name="store" value="{{purchaseditem.store.name}}">
                   {% for store in all_stores %}
-                      <option {% if store.id == purchaseditem.location_id %}selected{% endif %} value="{{ store.id }}">{{ store.name }}</option>
+                      <option {% if store.id == purchaseditem.store_id %}selected{% endif %} value="{{ store.id }}">{{ store.name }}</option>
                   {% endfor %}
             </select>
         </fieldset>
