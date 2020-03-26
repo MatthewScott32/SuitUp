@@ -8,18 +8,24 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def purchased_item_list(request):
     if request.method == 'GET':
-                current_user = request.user.id
-                # user_items = PurchasedItem.objects.filter(user_id=current_user)
-                all_items = PurchasedItem.objects.filter(user_id=current_user).values("id", "item_bought", "brand", "size", "price", "cleaning_methods", 
-                "notes", "store__name")
-                template = 'purchased_items/list.html'
-                context = {
-                    'all_items': all_items,
-                    # 'user_items': user_items
-                }
 
-                return render(request, template, context)
-            
+        current_user = request.user.id
+        all_stores = Store.objects.filter(user_id=current_user).values("id", "name", "location", "brands_available",
+                "notes")
+        all_items = PurchasedItem.objects.filter(user_id=current_user).values("id", "item_bought", "brand", "size", "price", "cleaning_methods",
+                "notes", "store__name")
+        storeId = request.GET.get('store', None)
+
+        if storeId is not None:
+            all_items = all_items.filter(store_id=storeId)
+
+
+        template = 'purchased_items/list.html'
+        context = {'all_stores': all_stores,
+                    'all_items': all_items}
+        return render(request, template, context)
+
+
     elif request.method == 'POST':
         form_data = request.POST
         new_item = PurchasedItem(
@@ -31,6 +37,6 @@ def purchased_item_list(request):
             cleaning_methods = form_data['cleaning_methods'],
             notes = form_data['notes'],
             user_id = request.user.id,
-        ) 
+        )
         new_item.save()
         return redirect(reverse('suitupapp:purchaseditems'))
