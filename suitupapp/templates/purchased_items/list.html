@@ -12,6 +12,16 @@
 
 {% block content %}
 
+    <fieldset>
+        <label for="store">Sort by store</label>
+        <select id="store" type="text" name="store">
+        <option value="" selected="selected">Select Store</option>
+            {% for store in all_stores %}
+                <option {% if store.id == location_id %}selected{% endif %} value="{{store.id}}">{{ store.name }}</option>
+            {% endfor %}
+        </select>
+    </fieldset>
+
     <h1 class="items">Items</h1>
 
     <a class="items" href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>

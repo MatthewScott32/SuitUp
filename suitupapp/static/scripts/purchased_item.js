@@ -10,7 +10,10 @@ document.querySelector(".items").addEventListener("click", (evt) => {
     }
 })
 
-closeDialog.addEventListener("click", e => infoDialog.close())
+document.querySelector("#store").addEventListener("change", evt => {
+    let storeId = evt.target.value
+    window.location.href = `?store=${storeId}`
+})
 
 window.addEventListener("keyup", e => {
     if (e.keyCode === 27) {
