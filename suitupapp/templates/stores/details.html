@@ -5,20 +5,24 @@
     <link rel="stylesheet" href="{% static 'styles/store.css' %}" />
 {% endblock %}
 
+    {% block title %}
+            Stores
+    {% endblock %}
+
 {% block content %}
     <h1 class="stores">Store</h1>
-
+      <section>
         <form style="text-align: center;" action="{% url 'suitupapp:store' store.id %}" method="POST">
             {% csrf_token %}
             <input type="hidden" name="actual_method" value="DELETE">
-            <button class="store__buttons">Delete</button>
+            <button>Delete</button>
         </form>
 
         <form style="text-align: center;" action="{% url 'suitupapp:store_edit_form' store.id %}" method="GET">
                 {% csrf_token %}
-                <button class="store__buttons">Edit</button>
+                <button>Edit</button>
         </form>
-
+      </section>
     <ul class="stores">
         <li class="store">
             <p class="item__name"><b>Name:</b> {{store.name}}</p>

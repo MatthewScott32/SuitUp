@@ -1,31 +1,36 @@
 {% extends 'shared/base.html' %}
+{% load static%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/storeform.css' %}" />
+{% endblock %}
 
 {% block content %}
 
     {% if store.id is not None %}
-    <h1>Edit Store</h1>
+    <h1 class="storeforms">Edit Store</h1>
     <form action="{% url 'suitupapp:store' store.id %}" method="post">
     {% else %}
-    <h1>New Store</h1>
-    <form action="{% url 'suitupapp:stores' %}" method="post">
-    {% endif %}
-      {% csrf_token %}
-      <fieldset>
-          <label for="name">Name: </label>
-          <input id="name" type="text" name="name" value="{{store.name}}">
-      </fieldset>
-      <fieldset>
-          <label for="location">Location: </label>
-          <input id="location" type="text" name="location" value="{{store.location}}">
-      </fieldset>
-      <fieldset>
-          <label for="brands_available">Known Brands Available: </label>
-          <input id="brands_available" type="text" name="brands_available" value="{{store.brands_available}}">
-      </fieldset>
-      <fieldset>
-          <label for="notes">Notes: </label>
-          <input id="notes" type="text" name="notes" value="{{store.notes}}">
-      </fieldset>
+        <h1 class="storeforms">New Store</h1>
+        <form action="{% url 'suitupapp:stores' %}" method="post">
+        {% endif %}
+        {% csrf_token %}
+        <fieldset>
+            <label class="storeform1" for="name">Name: </label>
+            <input id="name" type="text" name="name" value="{{store.name}}">
+        </fieldset>
+        <fieldset>
+            <label class="storeform2" for="location">Location: </label>
+            <input id="location" type="text" name="location" value="{{store.location}}">
+        </fieldset>
+        <fieldset>
+            <label class="storeform3" for="brands_available">Known Brands Available: </label>
+            <input id="brands_available" type="text" name="brands_available" value="{{store.brands_available}}">
+        </fieldset>
+        <fieldset>
+            <label class="storeform4" for="notes">Notes: </label>
+            <input id="notes" type="text" name="notes" value="{{store.notes}}">
+        </fieldset>
 
         {% if store.id is not None %}
             <input type="hidden" name="actual_method" value="PUT">

@@ -1,0 +1,96 @@
+.forms {
+    list-style: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-evenly !important;
+}
+
+.form {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 400px;
+}
+
+.form1 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 277px;
+}
+
+.form2 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 338px;
+}
+
+.form3 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 360px;
+}
+
+.form4 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 350px;
+}
+
+.form5 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 220px;
+}
+.form6 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 340px;
+}
+.form7 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 365px;
+}
+
+.form__name {
+    font-size: 1.1em;
+}
+
+.form__description {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 400px;
+}
+
+.register__button {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 495px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 20px;
+}

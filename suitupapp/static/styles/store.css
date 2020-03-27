@@ -11,6 +11,8 @@
     border: 1px solid gray;
     margin: 1em;
     padding: 1.5em;
+    background-color:gray !important;
+    color: black !important;
 }
 
 .store__name {
@@ -21,6 +23,6 @@
     font-size: 0.75em;
 }
 
-.store__buttons {
+/* .store__buttons {
     margin-left: 400px;
-}
+} */

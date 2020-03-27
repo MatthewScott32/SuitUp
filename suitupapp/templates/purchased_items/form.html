@@ -1,42 +1,47 @@
 {% extends 'shared/base.html' %}
+{% load static%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/itemform.css' %}" />
+{% endblock %}
 
 
 {% block content %}
 
     {% if purchaseditem.id is not None %}
-    <h1>Edit Item</h1>
+    <h1 class="forms">Edit Item</h1>
       <form action="{% url 'suitupapp:purchaseditem' purchaseditem.id %}" method="post">
        {% else %}
-       <h1>New Item</h1>
+       <h1 class="forms">New Item</h1>
         <form action="{% url 'suitupapp:purchaseditems' %}" method="post">
        {% endif %}
         {% csrf_token %}
         <fieldset>
-            <label for="item_bought">Item Bought: </label>
+            <label class="form1" for="item_bought">Item Bought: </label>
             <input id="item_bought" type="text" name="item_bought" value="{{purchaseditem.item_bought}}">
         </fieldset>
         <fieldset>
-            <label for="brand">Brand: </label>
+            <label class="form2" for="brand">Brand: </label>
             <input id="brand" type="text" name="brand" value="{{purchaseditem.brand}}">
         </fieldset>
         <fieldset>
-            <label for="size">Size: </label>
+            <label class="form3" for="size">Size: </label>
             <input id="size" type="text" name="size" value="{{purchaseditem.size}}"> 
         </fieldset>
         <fieldset>
-            <label for="price">Price: </label>
+            <label class="form4" for="price">Price: </label>
             <input id="price" type="text" name="price" value="{{purchaseditem.price}}">
         </fieldset>
         <fieldset>
-            <label for="cleaning_methods">Cleaning Methods: </label>
+            <label class="form5" for="cleaning_methods">Cleaning Methods: </label>
             <input id="cleaning_methods" type="text" name="cleaning_methods" value="{{purchaseditem.cleaning_methods}}">
         </fieldset>
         <fieldset>
-            <label for="notes">Notes: </label>
+            <label class="form6" for="notes">Notes: </label>
             <input id="notes" type="text" name="notes" value="{{purchaseditem.notes}}">
         </fieldset>
         <fieldset>
-            <label for="store">Store: </label>
+            <label class="form7" for="store">Store: </label>
             <select id="store" type="text" name="store">
         <option value="" selected="selected">Select Store</option>
             {% for store in all_stores %}
@@ -47,7 +52,7 @@
 
         {% if purchaseditem.id is not None %}
             <input type="hidden" name="actual_method" value="PUT">
-            <input type="submit" value="Update" />
+            <input style="text-align: center;" type="submit" value="Update" />
         {% else %}
             <input type="submit" value="Create" />
         {% endif %}
