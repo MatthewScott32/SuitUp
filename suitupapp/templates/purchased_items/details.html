@@ -4,7 +4,7 @@
    {% block title %}
             Purchased Items
    {% endblock %}
-    
+
 
 {% block content %}
     <h1>Item</h1>
@@ -27,7 +27,7 @@
         <button>Delete</button>
       </form>
 
-      <form action="{% url 'suitupapp:purchaseditem_edit_form' purchaseditem.id %}" method="GET">
+      <form action="{% url 'suitupapp:purchased_item_edit_form' purchaseditem.id %}" method="GET">
               {% csrf_token %}
               <button>Edit</button>
       </form>

@@ -2,15 +2,15 @@
 
 {% block content %}
 
-    {% if purchaseditem.id is not None %}
+    {% if purchaseditem_id is not None %}
     <h1>Edit Item</h1>
-      <form action="{% url 'suitupapp:purchaseditem' purchaseditem.id %}" method="post">
+      <form action="{% url 'suitupapp:purchased_item_edit_form' purchaseditem_id %}" method="post" enctype="multipart/form-data">
     {% else %}
     <h1>New Store</h1>
-    <form action="{% url 'suitupapp:purchaseditems' %}" method="post">
+    <form action="{% url 'suitupapp:upload_item' %}" method="post" enctype="multipart/form-data">
     {% endif %}
     {% csrf_token %}
-    {{ form.as_p}}  
+    {{ form.as_p}}
       {% comment %} <fieldset>
             <label for="item_bought">Item Bought: </label>
             <input id="item_bought" type="text" name="item_bought" value="{{purchaseditem.item_bought}}">
@@ -21,7 +21,7 @@
         </fieldset>
         <fieldset>
             <label for="size">Size: </label>
-            <input id="size" type="text" name="size" value="{{purchaseditem.size}}"> 
+            <input id="size" type="text" name="size" value="{{purchaseditem.size}}">
         </fieldset>
         <fieldset>
             <label for="price">Price: </label>
@@ -52,16 +52,16 @@
       {% endif %} {% endcomment %}
       {% comment %} </form> {% endcomment %}
 
-        {% if purchaseditem.id is not None %}
+        {% if purchaseditem_id is not None %}
             <input type="hidden" name="actual_method" value="PUT">
             <input type="submit" value="Update2" />
         {% else %}
             <input type="submit" value="Create" />
         {% endif %}
       </form>
-    {% comment %} <form method = "post" enctype="multipart/form-data"> 
-        {% csrf_token %} 
-        {{ form.as_p}} 
-        <button type="submit" value="Update">Update Real</button> 
+    {% comment %} <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit" value="Update">Update Real</button>
     </form> {% endcomment %}
     {%endblock%}
