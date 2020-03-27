@@ -1,0 +1,82 @@
+.storeforms {
+    list-style: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-evenly !important;
+}
+
+.storeform {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 400px;
+}
+
+.storeform1 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 345px;
+}
+
+.storeform2 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 320px;
+}
+
+.storeform3 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 170px;
+}
+
+.storeform4 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 345px;
+}
+
+.storeform5 {
+    flex-basis: 20%;
+    padding: 0 2em 0.5em 2em;
+    padding: 1.5em;
+    text-align: center;
+    margin-left: 220px;
+}
+
+.storeform__name {
+    font-size: 1.1em;
+}
+
+.storeform__description {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 400px;
+}
+
+.storeregister__button {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 495px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 20px;
+}
