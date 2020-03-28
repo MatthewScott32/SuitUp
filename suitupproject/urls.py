@@ -18,6 +18,7 @@ from django.contrib import admin
 from suitupapp.models import *
 
 
+
 app_name = 'suitupapp'
 urlpatterns = [
     path('admin/', admin.site.urls),
