@@ -24,11 +24,12 @@
 
     <h1 class="items">Items</h1>
 
-    <a class="items" href="{% url 'suitupapp:purchaseditemform' %}">Add Item</a>
+    <a class="items" href="{% url 'suitupapp:upload_item' %}">Add Item</a>
 
     <ol class="items">
     {% for item in all_items %}
         <li class="item">
+            <img style="margin-left: 70px;" src="{{MEDIA_URL}}{{item.image}}" alt="image" class="purchased-item-img" height="100" width="75">
             <p class="item__name"><b>Item:</b> <a href="{% url 'suitupapp:purchaseditem' item.id %}">{{item.item_bought}}</a></p>
             <p class="item__description"><b>Brand:</b> {{item.brand}}</p>
         </li>

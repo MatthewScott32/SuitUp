@@ -19,7 +19,7 @@
         <button>Delete</button>
       </form>
 
-      <form style="text-align: center;" action="{% url 'suitupapp:purchaseditem_edit_form' purchaseditem.id %}" method="GET">
+      <form style="text-align: center;" action="{% url 'suitupapp:purchased_item_edit_form' purchaseditem.id %}" method="GET">
               {% csrf_token %}
               <button>Edit</button>
       </form>
@@ -27,6 +27,7 @@
 
     <ul class="items">
         <li class="item">
+            <img style="margin-left: 70px;" src="{{MEDIA_URL}}{{purchaseditem.image}}" alt="image" class="purchased-item-img" height="100" width="75">
             <p class="item__name"><b>Item:</b> {{purchaseditem.item_bought}}</p>
             <p class="item__description"><b>Brand:</b> {{purchaseditem.brand}}</p>
             <p class="item__description"><b>Size:</b> {{purchaseditem.size}}</p>
