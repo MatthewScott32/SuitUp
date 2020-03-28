@@ -13,14 +13,14 @@ class Store(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
 
 
-class Meta:
-    verbose_name = ("store")
-    verbose_name_plural = ("stores")
+    class Meta:
+        verbose_name = ("store")
+        verbose_name_plural = ("stores")
 
 
-def __str__(self):
-    return u'{0}'.format(self.name)
+    def __str__(self):
+        return u'{0}'.format(self.name)
 
 
-def get_absolute_url(self):
-    return reverse("_detail", kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse("_detail", kwargs={"pk": self.pk})
