@@ -14,7 +14,7 @@ def purchased_item_list(request):
             "brands_available", "notes")
 
         all_items = PurchasedItem.objects.filter(user_id=current_user).values("id", "item_bought", "brand", 
-            "size", "price", "cleaning_methods", "notes", "store__name")
+            "size", "price", "cleaning_methods", "notes", "image", "store__name")
         storeId = request.GET.get('store', None)
 
         if storeId is not None:

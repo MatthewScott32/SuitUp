@@ -13,6 +13,7 @@ class PurchasedItem(models.Model):
     store = models.ForeignKey(Store, on_delete=models.SET_NULL, null=True)
     cleaning_methods = models.CharField(max_length=50)
     notes = models.CharField(max_length=50, default='')
+    image = models.ImageField(upload_to='images/', null=True)
     # issues = models.CharField(max_length=50, default='')
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
 
