@@ -25,9 +25,9 @@ class ItemForm(forms.ModelForm):
             self.fields['store'].queryset = Store.objects.all()
 
 
-    def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            self.fields['store'].queryset = Store.objects.all()
+    # def __init__(self, *args, **kwargs):
+    #         super().__init__(*args, **kwargs)
+    #         self.fields['store'].queryset = Store.objects.all()
 
 
 def get_purchaseditem(purchaseditem_id):
@@ -36,6 +36,9 @@ def get_purchaseditem(purchaseditem_id):
 
 
 def get_stores():
+    current_user = request.user.id
+    all_stores = Store.objects.filter(user_id=current_user).values("id", "name", "location", 
+        "brands_available", "notes")
     # if request.method == 'GET':
     all_stores = Store.objects.all()
     return all_stores

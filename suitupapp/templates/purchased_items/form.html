@@ -1,12 +1,17 @@
 {% extends 'shared/base.html' %}
+{% load static%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/itemform.css' %}" />
+{% endblock %}
 
 {% block content %}
 
     {% if purchaseditem_id is not None %}
-    <h1>Edit Item</h1>
+    <h1 class="forms">Edit Item</h1>
       <form action="{% url 'suitupapp:purchased_item_edit_form' purchaseditem_id %}" method="post" enctype="multipart/form-data">
     {% else %}
-    <h1>New Store</h1>
+    <h1 class="forms">New Store</h1>
     <form action="{% url 'suitupapp:upload_item' %}" method="post" enctype="multipart/form-data">
     {% endif %}
     {% csrf_token %}
