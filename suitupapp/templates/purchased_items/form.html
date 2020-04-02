@@ -11,7 +11,7 @@
     <h1 class="forms">Edit Item</h1>
       <form action="{% url 'suitupapp:purchased_item_edit_form' purchaseditem_id %}" method="post" enctype="multipart/form-data">
     {% else %}
-    <h1 class="forms">New Store</h1>
+    <h1 class="forms">New Item</h1>
     <form action="{% url 'suitupapp:upload_item' %}" method="post" enctype="multipart/form-data">
     {% endif %}
     {% csrf_token %}
