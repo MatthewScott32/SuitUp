@@ -20,9 +20,11 @@ class ItemForm(forms.ModelForm):
         model = PurchasedItem
         exclude = ["user"]
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, id, *args, **kwargs):
             super().__init__(*args, **kwargs)
-            self.fields['store'].queryset = Store.objects.all()
+            stores = Store.objects.filter(user_id=id)
+            # store_names = [ store["name"] for store in stores ]
+            self.fields['store'].queryset = stores
 
 
     # def __init__(self, *args, **kwargs):
@@ -46,8 +48,9 @@ def get_stores():
 @login_required
 def upload_item(request):
     context = {}
+    current_user = request.user.id
     if request.method == 'POST':
-        form = ItemForm(request.POST, request.FILES)
+        form = ItemForm(current_user, request.POST, request.FILES)
         if form.is_valid():
             item = form.save(commit=False)
             item.user_id = request.user.id
@@ -55,7 +58,7 @@ def upload_item(request):
             return redirect('suitupapp:success')
 
     else:
-        form = ItemForm()
+        form = ItemForm(current_user)
         context['form'] = form
         context['purchaseditem_id'] = None
 
@@ -76,9 +79,10 @@ def upload_item(request):
 @login_required
 def purchased_item_edit_form(request, purchaseditem_id):
     context = {}
+    current_user = request.user.id
     purchaseditem = get_purchaseditem(purchaseditem_id)
     if request.method == 'GET':
-        form = ItemForm(instance=purchaseditem)
+        form = ItemForm(current_user, instance=purchaseditem)
         context['form'] = form
         context['purchaseditem_id'] = purchaseditem_id
 
@@ -88,8 +92,7 @@ def purchased_item_edit_form(request, purchaseditem_id):
 
     if request.method == 'POST':
         # Pass in the user edited data via the resquest.POST param, and any media files via request.FILES (i.e. docs, imgs, etc.) while ensuring the correct instance is being updated
-        form = ItemForm(
-            request.POST, request.FILES, instance=purchaseditem)
+        form = ItemForm(current_user, request.POST, request.FILES, instance=purchaseditem)
 
         # Ensure form validation is complete and the correct data is being passed back to the server
         if form.is_valid():
